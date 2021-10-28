@@ -11,6 +11,7 @@ export const FetchProduct = "fetchProduct";
 export const AddProduct = "addProduct";
 export const RemoveProduct = "removeProduct";
 export const SearchProduct = "searchProduct";
+export const TriggerSaga = "triggerSaga";
 
 export type FetchAction = {
   type: typeof FetchProduct;
@@ -40,9 +41,15 @@ export type SearchProductAction = {
   };
 };
 
+export type TriggerSagaAction = {
+  type: typeof TriggerSaga;
+};
+
 export type AllAction = FetchAction | AddProductAction | RemoveProductAction;
 
 export type ProductState = {
   product: ProductType[];
   search: ProductType[];
 };
+
+//state

@@ -10,7 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
 import logo from "../../images/logo.png";
-import { Icon } from "@mui/material";
+import SwitchTheme from "../navBar/SwitchTheme";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -85,6 +85,7 @@ export default function NavBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <SwitchTheme />
         </Toolbar>
       </AppBar>
     </Box>

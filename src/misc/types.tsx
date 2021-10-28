@@ -21,17 +21,23 @@ export type FetchAction = {
 
 export type AddProductAction = {
   type: typeof AddProduct;
-  // payload: {
-
-  // }
+  payload: {
+    id: number;
+  };
 };
 
 export type RemoveProductAction = {
   type: typeof RemoveProduct;
+  payload: {
+    id: number;
+  };
 };
 
 export type SearchProductAction = {
   type: typeof SearchProduct;
+  payload: {
+    userInput: string;
+  };
 };
 
 export type AllAction = FetchAction | AddProductAction | RemoveProductAction;

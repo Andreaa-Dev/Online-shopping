@@ -45,7 +45,11 @@ export type TriggerSagaAction = {
   type: typeof TriggerSaga;
 };
 
-export type AllAction = FetchAction | AddProductAction | RemoveProductAction;
+export type AllAction =
+  | FetchAction
+  | AddProductAction
+  | RemoveProductAction
+  | SearchProductAction;
 
 export type ProductState = {
   product: ProductType[];

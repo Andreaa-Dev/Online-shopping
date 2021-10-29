@@ -10,5 +10,9 @@ export function fetchProduct(state = initialState, action: AllAction) {
         ...state,
         product: action.payload,
       };
+    case SearchProduct:
+      return {
+        ...state,
+      };
   }
 }

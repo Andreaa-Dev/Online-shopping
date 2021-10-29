@@ -1,8 +1,10 @@
 import { actionChannel } from "@redux-saga/core/effects";
 import {
+  AddProduct,
   AllAction,
   FetchProduct,
   ProductState,
+  RemoveProduct,
   SearchProduct,
 } from "../../misc/types";
 
@@ -24,6 +26,17 @@ export function fetchProduct(state = initialState, action: AllAction) {
       return {
         ...state,
         search: filteredResult,
+      };
+
+    case AddProduct:
+      return {
+        ...state,
+        product: [...state.product, action.payload.id],
+      };
+    case RemoveProduct:
+      return {
+        ...state,
+        removedPr,
       };
   }
 }

@@ -1,7 +1,8 @@
 import createSagaMiddleware from "@redux-saga/core";
 import { createStore, compose, applyMiddleware } from "redux";
 import { AppState } from "../../misc/types";
-import createRootReduce from "../reducer";
+import createRootReducer from "../reducer";
+import productSaga from "../saga/product";
 
 const initialAppState: AppState = {
   productState: {
@@ -11,7 +12,8 @@ const initialAppState: AppState = {
 };
 export default function makeStore(initialState = initialAppState) {
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = sagaMiddleware;
+  const middlewares = [sagaMiddleware];
+
   //   let composeEnhancers = compose;
   //   if (process.env.NODE_ENV === "development") {
   //     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
@@ -23,9 +25,9 @@ export default function makeStore(initialState = initialAppState) {
       (window as any)?.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
     compose;
   const store = createStore(
-    createRootReduce,
-    initialAppState,
-    composeEnhancers(applyMiddleware(middlewares))
+    createRootReducer(),
+    initialState,
+    composeEnhancers(applyMiddleware(...middlewares))
   );
   if ((module as any).hot) {
     (module as any).hot.accept("../reducer", () => {
@@ -33,5 +35,6 @@ export default function makeStore(initialState = initialAppState) {
       store.replaceReducer(nextReducer);
     });
   }
+  sagaMiddleware.run(productSaga);
   return store;
 }

@@ -1,4 +1,3 @@
-import { actionChannel } from "@redux-saga/core/effects";
 import {
   AddProduct,
   AllAction,
@@ -10,12 +9,15 @@ import {
 
 const initialState: ProductState = { product: [], search: [] };
 
-export function fetchProduct(state = initialState, action: AllAction) {
+export function productReducer(
+  state = initialState,
+  action: AllAction
+): ProductState {
   switch (action.type) {
     case FetchProduct:
       return {
         ...state,
-        product: action.payload,
+        product: action.payload.product,
       };
     case SearchProduct:
       const filteredResult = state.product.filter((product) => {
@@ -41,5 +43,7 @@ export function fetchProduct(state = initialState, action: AllAction) {
           return item! === action.payload.product;
         }),
       };
+    default:
+      return state;
   }
 }

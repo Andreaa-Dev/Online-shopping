@@ -1,4 +1,3 @@
-import { Call } from "@mui/icons-material";
 import {
   FetchAction,
   FetchProduct,
@@ -14,7 +13,7 @@ export function fetchProductSuccess(productData: ProductType[]): FetchAction {
     },
   };
 }
-
+//triggerSaga to fetch data
 export function triggerSaga() {
   return {
     type: TriggerSaga,

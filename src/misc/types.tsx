@@ -1,9 +1,8 @@
-import { TurnedInTwoTone } from "@mui/icons-material";
-
 export type ProductType = {
   name: string;
   brand: string;
   price: string;
+  api_featured_image: string;
 };
 
 //action type

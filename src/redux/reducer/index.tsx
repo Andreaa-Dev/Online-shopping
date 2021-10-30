@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { fetchProduct } from "./product";
+import { productReducer } from "./product";
 
-const createRootReduce = () =>
+const createRootReducer = () =>
   combineReducers({
-    productState: fetchProduct,
+    productState: productReducer,
   });
-export default createRootReduce;
+export default createRootReducer;

@@ -20,7 +20,7 @@ function Page() {
 
   return (
     <ImageList
-      sx={{ width: 500, height: 450 }}
+      sx={{ width: 500, height: 550 }}
       variant="woven"
       cols={3}
       gap={8}

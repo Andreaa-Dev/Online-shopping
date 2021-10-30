@@ -1,10 +1,10 @@
 import { AddProduct, AddProductAction, ProductType } from "../../misc/types";
 
-export function addProduct(id: number): AddProductAction {
+export function addProduct(product: ProductType): AddProductAction {
   return {
     type: AddProduct,
     payload: {
-      id,
+      product,
     },
   };
 }

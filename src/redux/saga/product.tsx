@@ -1,8 +1,10 @@
+// @ts-nocheck
 import { call, takeLatest, put } from "redux-saga/effects";
 import { FetchAction, TriggerSaga } from "../../misc/types";
 import { fetchProductSuccess } from "../action/product";
 
 // yield = async, put = dispatch
+
 function* fetchProductSaga(action: FetchAction) {
   try {
     const productData = yield fetch(
@@ -14,5 +16,5 @@ function* fetchProductSaga(action: FetchAction) {
     yield;
   }
 }
-//takeLatest receive the action type and function. when take triggerSaga => fetchProduct to get data
+//takeLatest receive the action type and function. when take triggerSaga => fetchProductSaga to get data
 export default [takeLatest(TriggerSaga, fetchProductSaga)];

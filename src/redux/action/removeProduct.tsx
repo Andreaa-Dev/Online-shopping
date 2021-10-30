@@ -1,10 +1,14 @@
-import { RemoveProduct, RemoveProductAction } from "../../misc/types";
+import {
+  ProductType,
+  RemoveProduct,
+  RemoveProductAction,
+} from "../../misc/types";
 
-export function removeProduct(id: number): RemoveProductAction {
+export function removeProduct(product: ProductType): RemoveProductAction {
   return {
     type: RemoveProduct,
     payload: {
-      id,
+      product,
     },
   };
 }

@@ -31,12 +31,15 @@ export function fetchProduct(state = initialState, action: AllAction) {
     case AddProduct:
       return {
         ...state,
-        product: [...state.product, action.payload.id],
+        product: [...state.product, action.payload.product],
       };
+    //state: whole state search,add,remove
     case RemoveProduct:
       return {
         ...state,
-        removedPr,
+        product: state.product.filter((item) => {
+          return item! === action.payload.product;
+        }),
       };
   }
 }

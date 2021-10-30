@@ -23,14 +23,14 @@ export type FetchAction = {
 export type AddProductAction = {
   type: typeof AddProduct;
   payload: {
-    id: number;
+    product: ProductType;
   };
 };
 
 export type RemoveProductAction = {
   type: typeof RemoveProduct;
   payload: {
-    id: number;
+    product: ProductType;
   };
 };
 
@@ -51,9 +51,12 @@ export type AllAction =
   | RemoveProductAction
   | SearchProductAction;
 
+//state
 export type ProductState = {
   product: ProductType[];
   search: ProductType[];
 };
 
-//state
+export type AppState = {
+  productState: ProductState;
+};

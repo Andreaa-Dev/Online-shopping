@@ -1,5 +1,10 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import {
+  styled,
+  alpha,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,9 +13,14 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
-import logo from "../../images/logo.png";
 import SwitchTheme from "../navBar/SwitchTheme";
+import logo from "../../images/logo.png";
 
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Indie Flower", "cursive"].join(","),
+  },
+});
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -55,38 +65,40 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function NavBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <img src={logo} alt="AN" height="40" width="40" />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            ANDREA
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <SwitchTheme />
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <img src={logo} alt="AN" height="40" width="40" />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
+              ColourPop
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <SwitchTheme />
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ThemeProvider>
   );
 }

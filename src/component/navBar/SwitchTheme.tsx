@@ -56,7 +56,7 @@ export default function SwitchTheme() {
     <FormGroup>
       <FormControlLabel
         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-        label="MUI switch"
+        label=""
       />
     </FormGroup>
   );

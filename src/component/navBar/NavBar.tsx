@@ -14,7 +14,6 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
 import SwitchTheme from "../navBar/SwitchTheme";
-import logo from "../../images/logo.png";
 
 const theme = createTheme({
   typography: {
@@ -69,15 +68,6 @@ export default function NavBar() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <img src={logo} alt="AN" height="40" width="40" />
-            </IconButton>
             <Typography
               variant="h6"
               noWrap

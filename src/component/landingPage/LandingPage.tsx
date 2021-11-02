@@ -1,11 +1,11 @@
 import React from "react";
 import LandingButton from "./LandingButton";
-import MainPageImg from "../../images/mainPageImg.jpeg";
+import Intro from "./Intro";
 
 function LandingPage() {
   return (
     <div>
-      <img src={MainPageImg} alt="ColourPop" />
+      <Intro />
       <LandingButton />
     </div>
   );

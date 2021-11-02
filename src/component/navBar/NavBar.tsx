@@ -20,6 +20,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 
 import SwitchTheme from "./SwitchTheme";
+import SubBar from "./SubBar";
 
 const drawerWidth = 240;
 
@@ -96,56 +97,59 @@ export default function NavBar() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            sx={{ ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <ThemeProvider theme={themes}>
-            <NavText>
-              <Typography>COLOURPOP</Typography>
-            </NavText>
-          </ThemeProvider>
-          <SwitchTheme />
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
+    <div>
+      <Box sx={{ display: "flex", marginBottom: 0 }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerOpen}
+              sx={{ ...(open && { display: "none" }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <ThemeProvider theme={themes}>
+              <NavText>
+                <Typography>COLOURPOP</Typography>
+              </NavText>
+            </ThemeProvider>
+            <SwitchTheme />
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
             width: drawerWidth,
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <List>
-          {["MAKEUP", "COLLABS", "SKINCARE", "BODY"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} style={{ fontWeight: "bold" }} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    </Box>
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <List>
+            {["MAKEUP", "COLLABS", "SKINCARE", "BODY"].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemText primary={text} style={{ fontWeight: "bold" }} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </Box>
+      <SubBar />
+    </div>
   );
 }

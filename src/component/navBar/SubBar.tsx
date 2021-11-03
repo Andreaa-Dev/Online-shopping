@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, createTheme, styled, ThemeProvider } from "@mui/system";
-import { makeStyles, Menu, MenuItem } from "@mui/material";
+import { Box } from "@mui/system";
+import { List, Menu, MenuItem } from "@mui/material";
+import mask from "../../images/mask.jpeg";
 
 function SubBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -8,6 +9,7 @@ function SubBar() {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    console.log("hi");
     setAnchorEl(null);
   };
   return (
@@ -16,20 +18,33 @@ function SubBar() {
         display: "flex",
         justifyContent: "space-between",
         marginTop: 5,
-        flexDirection: "row",
+        flexDirection: "column",
       }}
     >
       <div>
-        <h1 onMouseOver={handleMouseOver}>FaceCare</h1>
+        {/* anchor: know where to display */}
+        <h1 onMouseEnter={handleMouseOver}>FaceCare</h1>
         <Menu
           anchorEl={anchorEl}
-          keepMounted
+          // keepMounted
           open={Boolean(anchorEl)}
-          onClose={handleClose}
+          // onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          <List
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+            onMouseLeave={handleClose}
+          >
+            <div>
+              <MenuItem onClick={handleClose}>Face mask</MenuItem>
+              <MenuItem onClick={handleClose}>Hand mask</MenuItem>
+              <MenuItem onClick={handleClose}>Foot mask</MenuItem>
+            </div>
+            <img src={mask} alt="mask" height="150" width="150" />
+          </List>
         </Menu>
       </div>
     </Box>

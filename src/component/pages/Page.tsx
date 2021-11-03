@@ -28,7 +28,7 @@ function Page() {
         cols={3}
         gap={8}
       >
-        {data.slice(0, 12).map((item) => (
+        {data.slice(12, 24).map((item) => (
           <ImageListItem key={item.api_featured_image}>
             <img
               src={`${item.api_featured_image}?w=161&fit=crop&auto=format`}

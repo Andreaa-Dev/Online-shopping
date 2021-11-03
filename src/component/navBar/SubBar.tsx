@@ -1,13 +1,15 @@
 import React from "react";
-import Tooltip from "@mui/material/Tooltip";
 import { Box, createTheme, styled, ThemeProvider } from "@mui/system";
-import Deals from "./Deals";
-
-const MyComponent = styled("div")({
-  color: "darkslategray",
-});
+import { makeStyles, Menu, MenuItem } from "@mui/material";
 
 function SubBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleMouseOver = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Box
       sx={{
@@ -17,10 +19,19 @@ function SubBar() {
         flexDirection: "row",
       }}
     >
-      <MyComponent>Cleansing</MyComponent>
-      <h1 data-mui-toggle="dropdown">FaceCare</h1>
-      <h1>Facesheet</h1>
-      <h1>Bath & Body</h1>
+      <div>
+        <h1 onMouseOver={handleMouseOver}>FaceCare</h1>
+        <Menu
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
+      </div>
     </Box>
   );
 }

@@ -9,7 +9,7 @@ function* fetchProductSaga() {
   yield takeLatest(TriggerSaga, function* (action: FetchAction) {
     try {
       const productData = yield fetch(
-        "https://makeup-api.herokuapp.com/api/v1/products.json"
+        "https://makeup-api.herokuapp.com/api/v1/products.json?brand=dior"
       );
       const dataToJson = yield productData.json();
       yield put(fetchProductSuccess(dataToJson));

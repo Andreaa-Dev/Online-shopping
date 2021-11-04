@@ -1,8 +1,8 @@
 import React from "react";
-import { Route, Router, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Footer from "./component/footer/Footer";
 import NavBar from "./component/navBar/NavBar";
-import Page from "./component/pages/Page";
+import ProductsPage from "./component/pages/ProductsPage";
 import LandingPage from "./component/landingPage/LandingPage";
 
 function App() {
@@ -14,10 +14,9 @@ function App() {
           <LandingPage />
         </Route>
         <Route exact path="/products">
-          <Page />
+          <ProductsPage />
         </Route>
       </Switch>
-
       <Footer />
     </div>
   );

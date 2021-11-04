@@ -21,6 +21,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import SwitchTheme from "./SwitchTheme";
 import SubBar from "./SubBar";
+import NewTab from "./NewBar";
 
 const drawerWidth = 240;
 
@@ -150,6 +151,7 @@ export default function NavBar() {
         </Drawer>
       </Box>
       <SubBar />
+      <NewTab />
     </div>
   );
 }

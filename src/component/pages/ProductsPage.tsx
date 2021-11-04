@@ -1,3 +1,4 @@
+import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -5,7 +6,7 @@ import { AppState } from "../../misc/types";
 import { triggerSaga } from "../../redux/action/product";
 import ProductItem from "./ProductItem";
 
-function Page() {
+export default function ProductsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,13 +17,17 @@ function Page() {
     console.log(state.productState, "p");
     return state.productState.product;
   });
-  console.log(data, "a");
 
   return (
-      {data.map((item)=>{
-          return(<ProductItem item={item} />)}
-      )}
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr",
+      }}
+    >
+      {data.map((item) => {
+        return <ProductItem item={item} />;
+      })}
+    </Box>
   );
 }
-
-export default Page;

@@ -14,14 +14,21 @@ type ProductItemPropsType = {
 export default function ProductItem({ item }: ProductItemPropsType) {
   console.log(item, "da");
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 345, border: "2px #EDEDED solid", margin: 1 }}>
+      <CardActionArea
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <CardMedia
-          component="img"
-          height="140"
-          image={item.api_featured_image}
-          alt="green iguana"
-        />
+          sx={{
+            marginTop: 1,
+          }}
+        >
+          <img src={item.api_featured_image} alt={item.name} />
+        </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {item.name}
@@ -33,7 +40,7 @@ export default function ProductItem({ item }: ProductItemPropsType) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Add
         </Button>
       </CardActions>
     </Card>

@@ -4,6 +4,7 @@ import { FetchAction, TriggerSaga } from "../../misc/types";
 import { fetchProductSuccess } from "../action/product";
 
 // yield = async, put = dispatch
+//different syntax
 
 function* fetchProductSaga() {
   yield takeLatest(TriggerSaga, function* (action: FetchAction) {

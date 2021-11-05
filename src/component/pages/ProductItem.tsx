@@ -33,6 +33,15 @@ export default function ProductItem({ item }: ProductItemPropsType) {
           <Typography gutterBottom variant="h5" component="div">
             {item.name}
           </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            lineHeight="1"
+            overflow="hidden"
+            sx={{ content: "..." }}
+          >
+            {item.description}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             Price: {item.price}
           </Typography>

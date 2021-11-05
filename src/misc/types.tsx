@@ -2,6 +2,7 @@ export type ProductType = {
   name: string;
   brand: string;
   price: string;
+  description: string;
   api_featured_image: string;
 };
 

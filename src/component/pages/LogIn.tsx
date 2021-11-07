@@ -4,6 +4,7 @@ function LogIn() {
   return (
     <div>
       <CreateAccount />
+      <p>You already have a dior account</p>
     </div>
   );
 }
